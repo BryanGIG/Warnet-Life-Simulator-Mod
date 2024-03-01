@@ -19,46 +19,46 @@ uintptr_t hardLimitGachaKey;
 uintptr_t limitCurangGachaKey;
 
 void setNoLimit(GameManager *instance) {
-    Il2Cpp::SetField(instance, limitCurangWp, INT_MAX);
-    Il2Cpp::SetField(instance, hardLimitWp, INT_MAX);
+    Il2Cpp::SetField<int>(instance, limitCurangWp, INT_MAX);
+    Il2Cpp::SetField<int>(instance, hardLimitWp, INT_MAX);
 
-    Il2Cpp::SetField(instance, limitCurangSpecialToken, INT_MAX);
-    Il2Cpp::SetField(instance, hardLimitSpecialToken, INT_MAX);
+    Il2Cpp::SetField<int>(instance, limitCurangSpecialToken, INT_MAX);
+    Il2Cpp::SetField<int>(instance, hardLimitSpecialToken, INT_MAX);
 
-    Il2Cpp::SetField(instance, limitCurangGachaKey, INT_MAX);
-    Il2Cpp::SetField(instance, hardLimitGachaKey, INT_MAX);
+    Il2Cpp::SetField<int>(instance, limitCurangGachaKey, INT_MAX);
+    Il2Cpp::SetField<int>(instance, hardLimitGachaKey, INT_MAX);
 }
 
 void new_setGold(GameManager *instance, int) {
     setNoLimit(instance);
-    setGold(instance, 99999999);
+    setGold(instance, INT_MAX - 1);
 }
 
 float new_getMoney(GameManager *instance) {
     setNoLimit(instance);
-    Il2Cpp::SetField(instance, _money, 100000000);
-    return 100000000;
+    Il2Cpp::SetField<float>(instance, _money, ((float)INT_MAX) - 5);
+    return ((float)INT_MAX) - 5;
 }
 
 void new_setMoney(GameManager *instance, float val) {
     setNoLimit(instance);
-    Il2Cpp::SetField(instance, _money, 100000000);
-    setMoney(instance, 100000000);
+    Il2Cpp::SetField<float>(instance, _money, ((float)INT_MAX) - 5);
+    setMoney(instance, ((float)INT_MAX) - 5);
 }
 
 void new_setSpecialToken(GameManager *instance, int) {
     setNoLimit(instance);
-    setSpecialToken(instance, 99999999);
+    setSpecialToken(instance, INT_MAX - 1);
 }
 
 void new_setGachaKey(GameManager *instance, int) {
     setNoLimit(instance);
-    setGachaKey(instance, 99999999);
+    setGachaKey(instance, INT_MAX - 1);
 }
 
 void new_setWP(GameManager *instance, int) {
     setNoLimit(instance);
-    setWP(instance, 99999999);
+    setWP(instance, INT_MAX - 1);
 }
 
 void GameManager::Initialize() {
